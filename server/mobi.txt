@@ -1,0 +1,94 @@
+---------------------------------------------
+|        application data model             |
+---------------------------------------------
+name
+category
+logo
+version
+price
+size
+description
+developer or company
+rating
+number of downloads
+date of add to the store
+link to download
+screen shots array
+
+
+
+
+"Name": "Facebook",
+"Category": "Social Media apps ",
+"Logo":"logo application url",
+"Version": 1,
+"Size": 5,
+"Description": "facebook application best app",
+"Developer": "facebook dev-team",
+"Price": "free",
+"Rating": 4,
+"Link": "link to get the app",
+"Screens": "screens urls for the app"
+
+<TextField source="_id" />
+<TextField source="Name" />  
+<TextField source="Category" />  
+<TextField source="Logo" />  
+<TextField source="Version" />  
+<TextField source="Size" />  
+<TextField source="Description" />  
+<TextField source="Developer" />  
+<TextField source="Price" />  
+<TextField source="Rating" />
+<TextField source="Link" /> 
+<TextField source="Screens" />  
+<TextField source="createdAt" /> 
+<TextField source="updatedAt" />
+<TextField source="__v" />
+
+<TextField source="_id" />
+<TextField source="Name" />  
+<TextField source="Category" />  
+<TextField source="Logo" />  
+<TextField source="Version" />  
+<TextField source="Size" />  
+<TextField source="Description" />  
+<TextField source="Developer" />  
+<TextField source="Price" />  
+<TextField source="Rating" />
+<TextField source="Link" /> 
+<TextField source="Screens" /> 
+
+
+
+router.get("/apps", cors(corsOptions), async (req, res) => {
+  const apps = await App.find()   
+  res.set({
+    'Content-Range': 'apps 0-24/319',
+    'Access-Control-Expose-Headers': 'Content-Range'   
+  }) 
+  res.send(apps)
+});
+
+
+'Access-Control-Allow-Origin': '*' ,
+'Content-Type': 'application/json; charset=utf-8', 
+'X-Total-Count': '100',
+'Access-Control-Expose-Headers': '100',
+'Content-Range': 'apps 0-24/319',
+'Access-Control-Expose-Headers': 'Content-Range' 
+
+
+
+
+{ "data": [ { "id": "1", "Name": "Hello world", "Category": "Hello world" },{ "id": "1", "Name": "Hello world", "Category": "Hello world" } ], "total": 2 }
+
+
+
+
+// Get All Apps From Mongo DB-Atlas
+router.get("/apps", async (req, res) => {
+   await App.find()
+  .then((app)=> res.json({data : app}))  
+  .catch(err => res.status(400).json("Error: " + err))
+})

@@ -1,0 +1,41 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "server": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@admin-bro/express": "^3.1.0",
+    "@admin-bro/mongoose": "^1.1.0",
+    "@adminjs/express": "^4.0.0",
+    "@adminjs/mongoose": "^2.0.0",
+    "admin-bro": "^4.0.1",
+    "admin-bro-expressjs": "^2.1.1",
+    "admin-bro-mongoose": "^0.5.2",
+    "adminjs": "^5.1.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-csp-header": "^5.0.0",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.2",
+    "helmet-csp": "^3.4.0",
+    "mongoose": "^5.13.5",
+    "prop-types": "^15.7.2",
+    "ra-data-json-server": "^3.17.1",
+    "react-scripts": "^4.0.3",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
