@@ -1,176 +1,71 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import * as RiIcons from "react-icons/ri";
-import logo from "./logo/logo.png";
-import logo1 from "./logo/logo1.png";
-import logo2 from "./logo/logo2.png";
-import logo3 from "./logo/logo3.png";
-import logo4 from "./logo/logo4.png";
-import logo5 from "./logo/logo5.png";
 
 function Trendingsection() {
+  const [Trendingapps, setTrendingApps] = useState([]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    axios
+      .get("http://localhost:1111/api/apps")
+      .then((res) => {
+        setTrendingApps(res.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   return (
-    <div className="max-w-6xl mx-auto px-5 mt-10">
-      <div className="title flex justify-between items-start gap-2 my-2 font-normal">
-        <h1>
-          <i class="px-2 fas fa-fire"></i>Trending Applications :
+    <div className="px-4 md:max-w-7xl mx-auto mt-10 mb-10">
+      <div className="w-full text-xl font-normal flex justify-between md:text-2xl">
+        <h1 className="">
+          <i className="fab fa-get-pocket mr-2" />
+          Latest Applications :
         </h1>
-        <p class="text-sm font-semibold self-end">MORE</p>
+        <p className="">
+          <i class="fas fa-angle-double-right"></i>
+        </p>
       </div>
+      <div className="w-auto border-t-2 border-gray-400 mb-2" />
+      <div className="grid gap-2 mb-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* single card */}
+        {Trendingapps.map((app) => (
+          <Link to={`/app/${app._id}`}>
+            <div key={app.id}>
+              <div className="flex items-center p-1 bg-white border-2 border-gray-200 rounded-lg shadow-sm md:h-24">
+                <div className="p-1 mr-1 text-white rounded-full">
+                  <img className="max-h-16" src={app.Logo} alt="" />
+                </div>
+                <div className="">
+                  <h2 className="mb-1 my-auto text-xl font-medium text-gray-700 self-center">
+                    {app.Name}
+                  </h2>
+                  <div className="flex space-x-2 text-sm font-normal text-gray-600">
+                    <p className="text-xs font-bold px-1 rounded-lg border-2 border-blue-600">
+                      {app.Category}
+                    </p>
+                    <p className="text-xs font-medium">
+                      {app.Size} MB <i class="far fa-save"></i>
+                    </p>
+                    <p className="text-xs font-medium">
+                      {app.NumberOfDownloads} M{" "}
+                      <i class="far fa-arrow-alt-circle-down" />
+                    </p>
+                  </div>
+                </div>
+                <a
+                  className="md:hidden absolute right-10 px-2 leading-7 font-normal text-blue-500 rounded border-2 border-blue-500"
+                  href={`/app/${app._id}`}
+                >
+                  GET
+                </a>
+              </div>
+            </div>
+          </Link>
+        ))}
 
-      <div class="w-auto border-t-2 border-gray-400"></div>
-
-      <div className="cardgroup mt-3 grid grid-cols-3 gap-3 ">
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo1} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo5} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo3} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo4} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo1} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo5} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo3} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
-        {/* single card */}
-
-        {/* single card */}
-        <div className="single-card flex justify-start">
-          <div className="card-logo">
-            <img class="h-20" src={logo} alt="" />
-          </div>
-          <div className="card-info ml-5">
-            <div className="card-title font-normal">
-              <h2>Garena Free Fire - Rampage</h2>
-            </div>
-            <div className="card-desc text-sm font-normal">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <p>size : 25MB</p>
-            </div>
-          </div>
-        </div>
         {/* single card */}
       </div>
     </div>
@@ -178,4 +73,3 @@ function Trendingsection() {
 }
 
 export default Trendingsection;
-

@@ -1,0 +1,33 @@
+.login-navbar-logo {
+  color: white;
+}
+
+.login-items {
+  width: 240px;
+  height: 70px;
+  z-index: 10;
+  background-color: #060b26;
+  transition: 950ms;
+}
+
+.login-navbar-item {
+  color: white;
+  font-weight: 300;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  margin: 10px 5px;
+  border-radius: 4px;
+  list-style: none;
+  height: 50px;
+}
+
+.login-navbar-icon {
+  margin: 0 10px;
+}
+
+.login-navbar-item:hover {
+  background-color: #1a83ff;
+  color: aliceblue;
+}

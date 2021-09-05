@@ -10,10 +10,9 @@ export const Home = () => (
   <div className="home">
     <div className="main">
       <Hero />
-      {/* <Slidersection /> */}
       <Latestsection />
       <Trendingsection />
-      <Recomended />      
+      <Recomended />
     </div>
   </div>
 );

@@ -5,11 +5,11 @@
   align-items: center;
 }
 
-.menu-bars {
+/* .menu-bars {
   margin-left: 2rem;
   font-size: 1.5rem;
   background: none;
-}
+} */
 
 .menu-bars-close {
   margin-left: 2rem;
@@ -22,6 +22,7 @@
   width: 265px;
   height: 100vh;
   display: flex;
+  z-index: 10;
   justify-content: center;
   position: fixed;
   top: 0;

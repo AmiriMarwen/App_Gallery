@@ -34,4 +34,12 @@ body {
   background-image: url("../app/assets/img/hero-bg.jpg");
 }
 
-
+/* Flex */
+.slider-flex {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+.slider-flex-item {
+  flex: 0 0 auto;
+}

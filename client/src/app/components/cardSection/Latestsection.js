@@ -4,6 +4,7 @@ import * as RiIcons from "react-icons/ri";
 import { post } from "jquery";
 import { Link } from "react-router-dom";
 
+
 function Latestsection() {
   const [apps, setApps] = useState([]);
   useEffect(() => {
@@ -17,35 +18,56 @@ function Latestsection() {
         console.log(error.message);
       });
   }, []);
+
   return (
-    <div className="max-w-6xl mx-auto px-5 mb-8">
-      <div className="title my-2 font-normal">
-        <h1>
-          <i className="fas fa-th-large text-xl"></i> Latest Applications :
+    <div className="px-4 md:max-w-7xl mx-auto mt-10 mb-10">
+      <div className="w-full text-xl font-normal flex justify-between md:text-2xl">
+        <h1 className="">
+          <i className="fab fa-get-pocket mr-2" />
+          Latest Applications :
         </h1>
+        <p className="">
+          <i class="fas fa-angle-double-right"></i>
+        </p>
       </div>
-      <div className="cardgroup mt-3 grid grid-cols-6 gap-4 ">
-        {/* Map for each card from db*/}
+      <div className="w-auto border-t-2 border-gray-400 mb-2" />
+      <div className="grid gap-2 mb-4 md:grid-cols-2 lg:grid-cols-4">
+        {/* single card */}
         {apps.map((app) => (
           <Link to={`/app/${app._id}`}>
-            <div key={app.id} className="singlecard h-full px-1 shadow">
-              <div className="app-logo">
-                <img className="h-32 mx-auto" src={app.Logo} />
-              </div>
-              <div className="px-2 mt-1">
-                <div className="app-name font-semibold">{app.Name}</div>
-                <div className="app-rating-stars space-x-1">
-                  <span className="fa fa-star text-sm ml-0 checked"></span>
-                  <span className="fa fa-star text-sm checked"></span>
-                  <span className="fa fa-star text-sm checked"></span>
-                  <span className="fa fa-star text-sm"></span>
-                  <span className="fa fa-star text-sm"></span>
+            <div key={app.id}>
+              <div className="flex items-center p-1 bg-white border-2 border-gray-200 rounded-lg shadow-sm md:h-24">
+                <div className="p-1 mr-1 text-white rounded-full">
+                  <img className="max-h-16" src={app.Logo} alt="" />
                 </div>
-                <div className="app-size font-normal">{app.Size}MB</div>
+                <div className="">
+                  <h2 className="mb-1 my-auto text-xl font-medium text-gray-700 self-center">
+                    {app.Name}
+                  </h2>
+                  <div className="flex space-x-2 text-sm font-normal text-gray-600">
+                    <p className="text-xs font-bold px-1 rounded-lg border-2 border-blue-600">
+                      {app.Category}
+                    </p>
+                    <p className="text-xs font-medium">
+                      {app.Size} MB <i class="far fa-save"></i>
+                    </p>
+                    <p className="text-xs font-medium">
+                      {app.NumberOfDownloads} M{" "}
+                      <i class="far fa-arrow-alt-circle-down"/>
+                    </p>
+                  </div>
+                </div>
+                <a
+                  className="md:hidden absolute right-10 px-2 leading-7 font-normal text-blue-500 rounded border-2 border-blue-500"
+                  href={`/app/${app._id}`}
+                >
+                  GET
+                </a>
               </div>
             </div>
           </Link>
         ))}
+
         {/* single card */}
       </div>
     </div>

@@ -1,34 +1,35 @@
 import React from "react";
 import blacklogo from "../../assets/img/blacklogo.svg";
 
-export const Footersection = () => {
-  return (
-    <div className=" px-5 py-5 mt-5">
-      <div class="h-1 my-3 ::before shadow-md"></div>
-      <div className="footer-wraper max-w-6xl mx-auto flex justify-between items-start">
-        <div className="logo">
-          <img src={blacklogo} alt="footer logo" />
-        </div>
-        <div className="footer-links">
-          <div className="contact font-normal">
-            <p>©2021 APTOIDE.COM. All rights reserved</p>
+export class Footersection extends React.Component {
+  render() {
+    return (
+      <div className="px-5 py-2 mt-5">
+        <div className="h-1 my-3 ::before shadow-md" />
+        <div className="max-w-6xl mx-auto flex justify-between items-start">
+          <div className="logo">
+            <img className="h-8" src={blacklogo} alt="footer logo" />
+          </div>
+          <div className="footer-links"></div>
+          <div className="socials flex md:text-3xl space-x-4">
+            <a href="#">
+              <i className="fab fa-facebook" />
+            </a>
+            <a href="#">
+              <i className="fab fa-twitter" />
+            </a>
+            <a href="#">
+              <i className="fab fa-instagram" />
+            </a>
+            <a href="#">
+              <i className="fab fa-youtube" />
+            </a>
           </div>
         </div>
-        <div className="socials flex text-3xl space-x-4">
-          <a href="#">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-youtube"></i>
-          </a>
+        <div className="w-full text-center text-base font-normal italic">
+          <p>©2021 All rights reserved</p>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
